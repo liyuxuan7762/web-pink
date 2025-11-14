@@ -1,0 +1,238 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-09-09 13:45:19
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-10-15 12:02:00
+ * @FilePath: \frontend\Untitled-1.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosemitte Park</title>
+    <style>
+        :root {
+            --cardWidth: 80vw;
+            --cardHeight: 50vw;
+            --cardMargin: 3em;
+            --cardBackgroundColor: #fff;
+            --backgroundColor: #3A1D2A;
+        }
+
+        html,
+        body {
+            background-color: var(--backgroundColor);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--backgroundColor);
+            color: #fff;
+        }
+
+        .header .intro {
+            width: 80vw;
+        }
+
+        .header .intro h1 {
+            font-size: 4em;
+            margin-bottom: 1em;
+        }
+
+        .header .intro p {
+            font-size: 1.5em;
+        }
+
+        .main {
+            background-color: var(--backgroundColor);
+        }
+
+        .main ul li {
+            overflow: hidden;
+            position: sticky;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            top: 2vw;
+            width: var(--cardWidth);
+            height: var(--cardHeight);
+            margin-bottom: var(--cardMargin);
+            background-color: var(--cardBackgroundColor);
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 2em;
+            animation: scale 1s ease-in-out forwards;
+            animation-timeline: view();
+        }
+
+        .main ul li .content {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .main ul li .content h1 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .main ul li .content p {
+            font-size: 1em;
+            margin-bottom: 4em;
+        }
+
+        .main ul li .content a {
+            font-size: 1em;
+            padding: 1em 2em;
+            border-radius: 2em;
+            background-color: var(--backgroundColor);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .article {
+            display: flex;
+            width: 80vw;
+            margin-right: auto;
+            margin-left: auto;
+            color: #fff;
+            /* 更换主轴 */
+            flex-direction: column;
+            gap: 2em;
+        }
+
+        @keyframes scale {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="intro">
+            <h1>Yosemitte Park</h1>
+            <p>👇👇Yosemitte Park is a national park in California, United States. It is located in the Sierra Nevada
+                mountain range, about 100 kilometers (62 miles) north of Los Angeles. It is known for its granite
+                cliffs, waterfalls, and beautiful scenery.</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <ul>
+            <li>
+                <div class="content">
+                    <!-- 生成介绍公园瀑布的文字 包含一个h1标题 和一个p标签 -->
+                    <div>
+                        <h1>Yosemitte Waterfalls</h1>
+                        <p>⛰️Yosemitte Waterfalls is a waterfall in Yosemitte Park, California, United States. It is
+                            known
+                            for its cascading waterfalls and beautiful scenery.</p>
+                        <a href="#">Get More Info</a>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/img/card1.jpg">
+                </figure>
+            </li>
+            <li>
+                <div class="content">
+                    <!-- 生成介绍公园山峰的文字 包含一个h1标题 和一个p标签 -->
+                    <div>
+                        <h1>Yosemitte Mountains</h1>
+                        <p>🌋Yosemitte Mountains is a mountain range in Yosemitte Park, California, United States. It is
+                            known
+                            for its granite cliffs and beautiful scenery.</p>
+                        <a href="#">Get More Info</a>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/img/card2.jpg">
+                </figure>
+            </li>
+            <li>
+                <div class="content">
+                    <!-- 生成介绍公园河流的文字 包含一个h1标题 和一个p标签 -->
+                    <div>
+                        <h1>Yosemitte Rivers</h1>
+                        <p>🌊Yosemitte Rivers is a river in Yosemitte Park, California, United States. It is
+                            known
+                            for its beautiful scenery.</p>
+                        <a href="#">Get More Info</a>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/img/card3.jpg">
+                </figure>
+            </li>
+            <li>
+                <div class="content">
+                    <!-- 生成介绍公园著名的文字 包含一个h1标题 和一个p标签 -->
+                    <div>
+                        <h1>Yosemitte Famous</h1>
+                        <p>⛰️Yosemitte Famous is a waterfall in Yosemitte Park, California, United States. It is
+                            known
+                            for its cascading waterfalls and beautiful scenery.</p>
+                        <a href="#">Get More Info</a>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/img/card4.jpg">
+                </figure>
+            </li>
+        </ul>
+    </main>
+
+    <article class="article">
+        <!-- 帮我生成几段介绍公园的文字 每一段需要有一个h1标题和一个p标签。文字不要太少 -->
+        <div>
+            <h2>Yosemitte Park</h2>
+            <p>Yosemitte Park is a national park in California, United States. It is located in the Sierra Nevada
+                mountain range, about 100 kilometers (62 miles) north of Los Angeles. It is known for its granite
+                cliffs, waterfalls, and beautiful scenery.</p>
+        </div>
+        <!-- 帮我生成几段介绍公园的文字 每一段需要有一个h1标题和一个p标签。文字不要太少 -->
+        <div>
+            <h2>Yosemitte Waterfalls</h2>
+            <p>⛰️Yosemitte Waterfalls is a waterfall in Yosemitte Park, California, United States. It is
+                known
+                for its cascading waterfalls and beautiful scenery.</p>
+        </div>
+        <!-- 帮我生成几段介绍公园的文字 每一段需要有一个h1标题和一个p标签。文字不要太少 -->
+        <div>
+            <h2>Yosemitte Mountains</h2>
+            <p>🌋Yosemitte Mountains is a mountain range in Yosemitte Park, California, United States. It is
+                known
+                for its granite cliffs and beautiful scenery.</p>
+        </div>
+    </article>
+</body>
+
+</html>

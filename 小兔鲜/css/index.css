@@ -1,0 +1,406 @@
+.backTop {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 200px;
+    position: fixed;
+    right: 10px;
+    bottom: 350px;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.backTop a {
+    width: 100%;
+    height: 40px;
+    display: block;
+    color: #fff;
+    background-color: #817a7a;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.backTopActive {
+    background-color: #00BE9A !important;
+}
+
+.banner {
+    background-color: #f5f5f5;
+    height: 500px;
+}
+
+/* 文本单行显示溢出部分显示省略号 */
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.banner .container {
+    position: relative;
+    height: 100%;
+}
+
+.banner .container .category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.banner .container .circle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.banner .container .bannerImg {
+    position: relative;
+}
+
+.banner .container .circle ul {
+    display: flex;
+    gap: 10px;
+}
+
+.banner .container .circle ul li {
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.banner .container .circle ul li:hover {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.banner .container .prev {
+    left: 250px;
+}
+
+.banner .container .next {
+    right: 0;
+}
+
+.banner .container .prev,
+.banner .container .next {
+    position: absolute;
+    top: 50%;
+    height: 80px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%);
+    color: #fff;
+    text-align: center;
+    /* 默认隐藏（改为可过渡属性） */
+    opacity: 0;
+    visibility: hidden;
+    /* 添加过渡效果 */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.banner .container .prev a,
+.banner .container .next a {
+    color: #fff;
+}
+
+.banner .container .prev span,
+.banner .container .next span {
+    font-size: 20px;
+    line-height: 80px;
+}
+
+/* 当鼠标悬停在bannerImg上时显示前后按钮 */
+.banner .container .bannerImg:hover .prev,
+.banner .container .bannerImg:hover .next {
+    opacity: 1;
+    visibility: visible;
+}
+
+.banner .container .category {
+    height: 500px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.banner .container .category ul li {
+    width: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    padding: 0 12px 0 29px;
+}
+
+.banner .container .category ul li:hover {
+    background-color: #00BE9A;
+}
+
+.banner .container .category ul li p a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.banner .container .category ul li p a:first-child {
+    color: #fff;
+    font-size: 16px;
+}
+
+.fresh .container .title {
+    height: 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fresh .container .title .title-left {
+    display: flex;
+    height: 112px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fresh .container .title .title-left h2 {
+    font-size: 30px;
+    color: #333333;
+    margin-right: 35px;
+}
+
+.fresh .container .title .title-left p {
+    font-size: 16px;
+    color: #A1A1A1;
+}
+
+.fresh .container ul {
+    display: flex;
+    gap: 8px;
+}
+
+.fresh .container ul li {
+    background: #EEF9F4;
+    transition: all 0.3s ease-in-out;
+}
+
+.fresh .container ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fresh .container ul li img {
+    width: 304px;
+    height: 304px;
+}
+
+.fresh .container ul li .item-name {
+    font-size: 20px;
+    color: #333333;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.fresh .container ul li .price {
+    font-size: 20px;
+    color: #AA2113;
+    letter-spacing: 1.1px;
+    line-height: 31px;
+    text-align: center;
+    margin-top: 9px;
+    margin-bottom: 15px;
+}
+
+.container .food {
+    display: flex;
+    height: 122px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.container .food .title-right {
+    display: flex;
+}
+
+.container .food .title-right ul {
+    display: flex;
+    margin-right: 65px;
+    gap: 20px;
+}
+
+.container .food .title-right ul li {
+    padding: 1px 1px;
+
+}
+
+.container .food .title-right ul li:hover {
+    background-color: #00BE9A;
+}
+
+.container .food .title-right ul li a:hover {
+    color: #fff;
+}
+
+.container .food .title-right a {
+    display: block;
+    padding: 1px 1px;
+}
+
+.container .food .title-right p {
+    padding: 1px 1px;
+}
+
+.container .food .title-right ul li:first-child {
+    background-color: #00BE9A;
+}
+
+.container .food .title-right ul li:first-child a {
+    color: #fff;
+}
+
+.container .food .content {
+    display: flex;
+}
+
+.container .food-detail {
+    display: flex;
+}
+
+.container .food-detail .left-img {
+    width: 248px;
+    height: 610px;
+}
+
+.container .food-detail ul li img {
+    width: 200px;
+    height: 180px;
+    margin-bottom: 14px;
+}
+
+.container .food-detail ul li {
+    overflow: hidden;
+    position: relative;
+    height: 305px;
+    /* 2像素透明边框 */
+    border: 2px transparent solid;
+    transition: all 0.3s ease-in-out;
+}
+
+.container .food-detail ul li:hover {
+    border-color: #00BE9A;
+}
+
+.container .food-detail ul li:hover .findSimliar {
+    transform: translateY(-83.5px);
+}
+
+.container .food-detail ul {
+    margin-left: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.container .food-detail ul li p {
+    font-size: 16px;
+    color: #333333;
+    line-height: 19px;
+}
+
+.container .food-detail ul li .price {
+    font-size: 20px;
+    color: #AF2F22;
+    line-height: 31px;
+}
+
+.container .food-detail ul li .findSimliar {
+    position: absolute;
+    bottom: -83.5px;
+    left: 0;
+    font-size: 18px;
+    /* 背景半透明 */
+    background-color: rgba(0, 190, 154, 0.5);
+    text-align: center;
+    height: 83.5px;
+    width: 100%;
+    z-index: 9;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+
+.container .food-detail ul li .findSimliar a:first-child {
+    display: block;
+    width: 120px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.11);
+    color: #fff;
+    margin: 0 auto;
+    padding: 10px 0px;
+}
+
+.container .food-detail ul li .findSimliar a:nth-child(2) {
+    font-size: 12px;
+    display: block;
+    width: 120px;
+    color: #fff;
+    margin: 0 auto;
+    padding: 10px 0px;
+}
+
+.container .new {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 112px;
+}
+
+.container .imgContainer img {
+    width: 405px;
+    height: 288px;
+    transition: all 0.6s ease-in-out;
+}
+
+.container .imgContainer {
+    overflow: hidden;
+}
+
+.container .imgContainer img:hover {
+    transform: scale(1.1);
+}
+
+.newbody ul {
+    display: flex;
+    gap: 13px;
+}
+
+.newbody ul li .comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 2px;
+    margin-top: 20px;
+    color: #666666;
+}
+
+.newbody ul li .comment-left {
+    display: flex;
+    gap: 10px;
+}
+
+.newbody {
+    margin-bottom: 30px;
+}

@@ -1,0 +1,723 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-09-16 09:42:20
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-13 20:56:21
+ * @FilePath: \web\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小兔鲜儿 -- 新鲜 · 亲民 · 快捷</title>
+    <!-- 给网页添加图标 -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <!-- 引入iconfont字体图标 -->
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+
+    <!-- 返回顶部 -->
+    <div class="backTop">
+        <a data-target=".fresh">生鲜好物</a>
+        <a data-target=".food">美食分享</a>
+        <a data-target=".newbody">最新好物</a>
+        <a class="home">返回顶部</a>
+    </div>
+
+    <!-- 1. 网页顶部导航栏 -->
+    <!-- 1.1 顶栏 -->
+    <section class="header">
+        <div class="container">
+            <ul>
+                <li><a href="#">请先登录</a></li>
+                <li class="sep"></li>
+                <li><a href="#">免费注册</a></li>
+                <li class="sep"></li>
+                <li><a href="#">我的订单</a></li>
+                <li class="sep"></li>
+                <li><a href="#">会员中心</a></li>
+                <li class="sep"></li>
+                <li><a href="#">帮助中心</a></li>
+                <li class="sep"></li>
+                <li><a href="#">在线客服</a></li>
+                <li class="sep"></li>
+                <li class="phone"><a href="#"><span class="iconfont icon-mobile-phone"></span>手机版</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 1.2 logo+导航栏 -->
+    <section class="navContainer">
+        <section class="container nav">
+            <div class="logo">
+                <h3>小兔鲜儿</h3>
+            </div>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">生鲜</a></li>
+                <li><a href="#">美食</a></li>
+                <li><a href="#">餐厨</a></li>
+                <li><a href="#">电器</a></li>
+                <li><a href="#">居家</a></li>
+                <li><a href="#">洗护</a></li>
+                <li><a href="#">孕产</a></li>
+                <li><a href="#">严选</a></li>
+            </ul>
+            <div class="search">
+                <span class="iconfont icon-search"></span>
+                <input type="text" placeholder="搜一搜" name="text">
+            </div>
+            <div class="cart">
+                <div class="cart-num">12</div>
+                <a href="#"><span class="iconfont icon-cart-full"></span></a>
+            </div>
+        </section>
+    </section>
+
+    <!-- 首页主体部分 -->
+    <section class="banner">
+        <div class="container">
+            <div class="category">
+                <ul>
+                    <li>
+                        <p>
+                            <a href="#">生鲜</a>
+                            <a href="#">水果</a>
+                            <a href="#">蔬菜</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">美食</a>
+                            <a href="#">面点</a>
+                            <a href="#">面点</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">餐厨</a>
+                            <a href="#">清洁</a>
+                            <a href="#">餐具</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">居家</a>
+                            <a href="#">奶粉</a>
+                            <a href="#">玩具</a>
+                            <a href="#">辅食</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">洗护</a>
+                            <a href="#">洗发</a>
+                            <a href="#">洗护</a>
+                            <a href="#">美妆</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">孕婴</a>
+                            <a href="#">奶粉</a>
+                            <a href="#">玩具</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">服饰</a>
+                            <a href="#">男装</a>
+                            <a href="#">女装</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">杂货</a>
+                            <a href="#">户外</a>
+                            <a href="#">图书</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">品牌</a>
+                            <a href="#">品牌制造</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <a href="#">电器</a>
+                            <a href="#">家电</a>
+                            <a href="#">电脑</a>
+                        </p>
+                        <p>
+                            <span class="iconfont icon-arrow-right-bold"></span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 图片 -->
+            <div class="bannerImg">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="./uploads/banner1.png">
+                        </a>
+                    </li>
+                </ul>
+                <!-- 小圆点 -->
+                <div class="circle">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <!-- 上一个按钮 -->
+                <div class="prev">
+                    <a href="#"><span class="iconfont icon-arrow-left-bold"></span></a>
+                </div>
+                <!-- 下一个按钮 -->
+                <div class="next">
+                    <a href="#"><span class="iconfont icon-arrow-right-bold"></span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新鲜好物 -->
+    <section class="container fresh evl">
+        <div class="container">
+            <div class="title">
+                <div class="title-left">
+                    <h2>新鲜好物</h2>
+                    <small>
+                        新鲜出炉 品质靠谱
+                    </small>
+                </div>
+                <p>
+                    <a href="#">查看更多<span class="iconfont icon-arrow-right-bold"></span></a>
+                </p>
+            </div>
+            <ul>
+                <li>
+                    <img src="./uploads/fresh1.png">
+                    <p class="ellipsis item-name">
+                        KN95级莫兰迪色防护口罩
+                    </p>
+                    <p class="price">
+                        <span>¥</span>
+                        <span>79</span>
+                    </p>
+                </li>
+                <li>
+                    <img src="./uploads/goods2.png">
+                    <p class="ellipsis item-name">
+                        KN95级莫兰迪色防护口罩
+                    </p>
+                    <p class="price">
+                        <span>¥</span>
+                        <span>79</span>
+                    </p>
+                </li>
+                <li>
+                    <img src="./uploads/goods3.png">
+                    <p class="ellipsis item-name">
+                        KN95级莫兰迪色防护口罩
+                    </p>
+                    <p class="price">
+                        <span>¥</span>
+                        <span>79</span>
+                    </p>
+                </li>
+                <li>
+                    <img src="./uploads/fresh4.png">
+                    <p class="ellipsis item-name">
+                        KN95级莫兰迪色防护口罩
+                    </p>
+                    <p class="price">
+                        <span>¥</span>
+                        <span>79</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 美食 -->
+    <section class="container food evl">
+        <div class="food">
+            <h2>美食分享</h2>
+            <div class="title-right">
+                <ul>
+                    <li>
+                        <a href="#">热门</a>
+                    </li>
+                    <li>
+                        <a href="#">新鲜</a>
+                    </li>
+                    <li>
+                        <a href="#">蔬菜</a>
+                    </li>
+                    <li>
+                        <a href="#">水果</a>
+                    </li>
+                    <li>
+                        <a href="#">肉禽蛋</a>
+                    </li>
+                    <li>
+                        <a href="#">海鲜</a>
+                    </li>
+                    <li>
+                        <a href="#">饮料</a>
+                    </li>
+                </ul>
+                <p>
+                    <a href="#">
+                        查看更多
+                        <span class="iconfont icon-arrow-right-bold"></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="food-detail">
+            <img class="left-img" src="./uploads/fresh_left.png" />
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh1.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh2.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh3.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh4.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh5.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh6.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh7.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="./uploads/fresh8.png" />
+                        <p>双味千层，手抓饼烤肉组合</p>
+                        <p>240g/袋 4片装</p>
+                        <p>加热即食</p>
+                        <p class="price">
+                            <span>¥</span>
+                            <span>89.99</span>
+                        </p>
+                    </a>
+                    <div class="findSimliar">
+                        <a href="#">
+                            找相似
+                        </a>
+                        <a href="#">
+                            发现更多宝贝
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- 最新好物 -->
+    <section class="container newbody evl">
+        <div class="new">
+            <h2>最新好物</h2>
+            <p>
+                <a href="#">
+                    查看更多<span class="iconfont icon-arrow-right-bold"></span>
+                </a>
+            </p>
+        </div>
+        <ul>
+            <li>
+                <div class="imgContainer">
+                    <img src="/uploads/topic1.png">
+                </div>
+                <div class="comment">
+                    <div class="comment-left">
+                        <p><span class="iconfont icon-favorites-fill"></span>2500</p>
+                        <p><span class="iconfont icon-browse"></span>542</p>
+                    </div>
+                    <div class="comment-right">
+                        <p><span class="iconfont icon-comment"></span>321</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="imgContainer">
+                    <img src="/uploads/topic2.png">
+                </div>
+                <div class="comment">
+                    <div class="comment-left">
+                        <p><span class="iconfont icon-favorites-fill"></span>2500</p>
+                        <p><span class="iconfont icon-browse"></span>542</p>
+                    </div>
+                    <div class="comment-right">
+                        <p><span class="iconfont icon-comment"></span>321</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="imgContainer">
+                    <img src="/uploads/topic3.png">
+                </div>
+                <div class="comment">
+                    <div class="comment-left">
+                        <p><span class="iconfont icon-favorites-fill"></span>2500</p>
+                        <p><span class="iconfont icon-browse"></span>542</p>
+                    </div>
+                    <div class="comment-right">
+                        <p><span class="iconfont icon-comment"></span>321</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 2. 网页底部 -->
+    <section class="footer">
+        <div class="container">
+            <div class="top">
+                <ul class="solgan">
+                    <li>
+                        <p class="one" style="--i:0"></p>
+                        <h3>价格亲民</h3>
+                    </li>
+                    <li>
+                        <p class="two" style="--i:1"></p>
+                        <h3>物流快捷</h3>
+                    </li>
+                    <li>
+                        <p class="three" style="--i:2"></p>
+                        <h3>品质新鲜</h3>
+                    </li>
+                    <li>
+                        <p class="four" style="--i:3"></p>
+                        <h3>服务保障</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="service">
+                <div class="service-left">
+                    <dl>
+                        <dt>关于我们</dt>
+                        <dd><a href="#">联系我们</a></dd>
+                        <dd><a href="#">加入我们</a></dd>
+                        <dd><a href="#">合作联系</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>服务支持</dt>
+                        <dd><a href="#">支付帮助</a></dd>
+                        <dd><a href="#">退款帮助</a></dd>
+                        <dd><a href="#">订单帮助</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>关注我们</dt>
+                        <dd><a href="#">微信</a></dd>
+                        <dd><a href="#">微博</a></dd>
+                        <dd><a href="#">抖音</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>服务热线</dt>
+                        <dd><a href="#">在线客服<span class="iconfont icon-customer-service"></span></a></dd>
+                        <dd><a href="#">客服电话 400-888-8888</a></dd>
+                        <dd><a href="#">工作时间 周一至周日 8:00-18:00</a></dd>
+
+                    </dl>
+                </div>
+                <div class="service-right">
+                    <ul>
+                        <li>
+                            <img src="./images/wechat.png">
+                            <p>微信公众号</p>
+                        </li>
+                        <li>
+                            <img src="./images/wechat.png">
+                            <p>APP下载二维码</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>
+                    关于我们 | 帮助中心 | 售后服务 | 配送与验收 | 商务合作 | 搜索推荐 | 友情链接
+                </p>
+                <p>CopyRight © 小兔鲜</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+
+        // 返回顶部    
+        (function () {
+
+            const freshContainer = document.querySelector('.fresh');
+            const offsetTop = freshContainer.offsetTop;
+
+            console.log(offsetTop);
+
+            const header = document.querySelector('.navContainer');
+            const headerHeight = header.offsetHeight;
+
+
+            window.addEventListener('scroll', function () {
+                const backTop = document.querySelector('.backTop');
+                backTop.style.opacity = document.documentElement.scrollTop > offsetTop - headerHeight ? 1 : 0;
+            })
+
+            const home = document.querySelector('.backTop .home');
+            home.addEventListener('click', function () {
+                document.documentElement.scrollTop = 0;
+            });
+        })();
+
+        // 点击电梯导航，跳转到不同的部分
+        (function () {
+            // 获取backtop
+            const backTop = document.querySelector('.backTop');
+
+            // 给backtop通过事件委托的方式给所有的a设置点击事件
+            backTop.addEventListener('click', function (e) {
+
+                console.log(123213);
+                if (e.target.tagName === 'A' && e.target.dataset.target) {
+
+                    e.preventDefault();
+
+                    // 读取到事件的源，然后获取到data-target
+                    const targetArea = e.target.dataset.target;
+
+                    // 根据target计算到顶部的距离
+                    const area = document.querySelector(targetArea);
+
+                    // 获取导航栏高度
+                    const header = document.querySelector('.navContainer');
+                    const headerHeight = header.offsetHeight;
+
+                    // 设置scrollTop的值
+                    document.documentElement.scrollTop = area.offsetTop - headerHeight;
+
+                    // 设置选中元素是active
+                    // const activeElement = document.querySelector('.backTopActive');
+                    // if (activeElement) activeElement.classList.remove('backTopActive');
+                    // e.target.classList.add('backTopActive');
+
+                }
+            });
+
+
+        })();
+
+
+        // 获取页面中所有class中有evl的section元素
+        const sections = document.querySelectorAll('section.evl');
+        const sectionList = [];
+
+        const header = document.querySelector('.navContainer');
+        const headerHeight = header.offsetHeight;
+
+        for (let i = 0; i < sections.length; i++) {
+            // 计算min 和 max
+            const itemTop = sections[i].offsetTop;
+            const itemBottom = itemTop + sections[i].offsetHeight;
+            // 获取类名 找到classList中类名不等于container, evl 的其他的类名返回
+            const itemClass = [...sections[i].classList].filter(item => item !== 'container' && item !== 'evl')[0];
+            sectionList.push({
+                min: itemTop - headerHeight,
+                max: itemBottom - headerHeight,
+                area: itemClass
+            });
+        }
+
+
+
+        // 当页面滚动到相应位置的时候，显示不同的电梯导航项目
+        (function () {
+            window.addEventListener('scroll', function (e) {
+                // 取消所有active状态
+                const activeItem = document.querySelector('.backTopActive');
+                if (activeItem) activeItem.classList.remove('backTopActive');
+
+                // 获取滚动的距离
+                const scrollTop = document.documentElement.scrollTop;
+
+                for (let i = 0; i < sectionList.length; i++) {
+                    if (scrollTop >= sectionList[i].min && scrollTop < sectionList[i].max) {
+                        const item = document.querySelector(`.backTop a[data-target=".${sectionList[i].area}"]`);
+                        if (item) item.classList.add('backTopActive');
+                    }
+                }
+            });
+
+        })();
+    </script>
+</body>
+
+</html>

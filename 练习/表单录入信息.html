@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>表单录入信息</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* 背景设置深色模式 */
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    #StudentInfoForm {
+      margin: 0 auto;
+      border: 1px solid #ffffff;
+      padding: 20px;
+    } 
+
+    table {
+      width: 100%;
+      border: 1px solid #ffffff;
+      margin-top: 20px;
+      /* 显示单元格边框 */
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    tr, td, th {
+      border: 1px solid #ffffff;
+    }
+    
+    .info {
+      margin-top: 5px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <form id="StudentInfoForm">
+    姓名：
+    <input type="text" id="StudentName" placeholder="请输入姓名" name="name"></input><br>
+    性别：
+    <select id="StudentGender" placeholder="请选择性别" name="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select><br>
+    城市: 
+    <select id="StudentCity" name="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+    </select><br>
+    月薪:
+    <input type="number" id="StudentSalary" placeholder="请输入月薪" name="salary"></input><br>
+    <input type="submit" value="提交">
+  </form>
+  <div class="info">
+    共有0条记录
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>城市</th>
+        <th>月薪</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    let studentArr = [];
+    // 获取所有的input 
+    const studentName = document.querySelector('#StudentName');
+    const studentGender = document.querySelector('#StudentGender');
+    const studentCity = document.querySelector('#StudentCity');
+    const studentSalary = document.querySelector('#StudentSalary');
+    const items = document.querySelectorAll('[name]');
+
+    renderTable();
+    
+    document.querySelector('#StudentInfoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].value  === '') {
+          alert('请填写完整信息');
+          return;
+        }
+      }
+
+      studentArr = localStorage.getItem('studentArr') ? studentArr = JSON.parse(localStorage.getItem('studentArr')) : [];
+
+
+      studentArr.push({
+        name: studentName.value,
+        gender: studentGender.value,
+        city: studentCity.value,
+        salary: studentSalary.value,
+      });
+
+      // 存储到localStorage
+      localStorage.setItem('studentArr', JSON.stringify(studentArr));
+      
+      renderTable();
+      this.reset();
+      
+    });
+
+    function renderTable() {
+      const tbody = document.querySelector('tbody');
+      tbody.innerHTML = '';
+
+      // 从localStorage里面获取数据
+      studentArr = localStorage.getItem('studentArr') ? JSON.parse(localStorage.getItem('studentArr')) : [];
+
+      
+      tbody.innerHTML = studentArr.map(function(ele, index) {
+        return `
+          <tr>
+            <td>${ele.name}</td>
+            <td>${ele.gender}</td>
+            <td>${ele.city}</td>
+            <td>${ele.salary}</td>
+            <td><button class="delete-btn" data-index="${index}">删除</button></td>
+          </tr>
+        `
+      }).join('');
+
+      // 更新记录数
+      document.querySelector('.info').textContent = `共有${studentArr.length}条记录`;
+
+    }
+
+
+    document.querySelector('tbody').addEventListener('click', function(e) {
+      if (e.target.tagName === 'BUTTON' && e.target.dataset.index) {
+
+        if (!confirm('确定删除吗？')) {
+          return;
+        }
+
+        studentArr = localStorage.getItem('studentArr') ? JSON.parse(localStorage.getItem('studentArr')) : [];
+
+        const index = e.target.dataset.index;
+        studentArr.splice(index, 1);
+        renderTable();
+        
+        // 存储到localStorage
+        localStorage.setItem('studentArr', JSON.stringify(studentArr));
+      }
+    });
+  </script>
+</body>
+</html>

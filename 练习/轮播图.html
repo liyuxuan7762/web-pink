@@ -1,0 +1,201 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-05 14:29:20
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-12 15:26:33
+ * @FilePath: \test\Untitled-1.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      position: relative;
+      width: 200px;
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    img {
+      width: 200px;
+      height: 350px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    ul li {
+      width: 20px;
+      height: 20px;
+      list-style: none;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      text-align: center;
+      color: #fff;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    ul li:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding-inline-start: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      border-radius: 5px;
+      padding: 5px 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .banner {
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .active {
+      background-color: rgba(17, 199, 202, 0.5) !important;
+    }
+
+    .btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      width: 25px;
+      height: 25px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border: 0;
+      outline: 0;
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="img/cat1.jpg" alt="" width="200px">
+    <div class="btn">
+      <button>←</button>
+      <button>→</button>
+    </div>
+    <div class="banner">
+      <ul>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // 删除所有的li的active类名
+    function removeActive() {
+      const lis = document.querySelectorAll('ul li');
+      lis.forEach(li => {
+        li.classList.remove('active');
+      });
+    }
+
+    function displayImg(index) {
+      const img = document.querySelector('img');
+      img.src = `img/cat${index}.jpg`;
+
+      // 获取第index个li元素
+      const li = document.querySelector(`ul li:nth-child(${index})`);
+
+      removeActive();
+      // 给li添加active类名
+      li.classList.add('active');
+    }
+
+
+    let count = 1;
+
+
+    function moveNext() {
+      if (count >= 6) {
+        count = 0;
+      }
+      displayImg(count + 1);
+      count++;
+    }
+
+    function movePrev() {
+      if (count <= 1) {
+        count = 7;
+      }
+      displayImg(count - 1);
+      count--;
+    }
+
+    let timerId = setInterval(moveNext, 1000);
+
+    const container = document.querySelector('.container');
+    container.addEventListener('mouseenter', () => {
+      clearInterval(timerId);
+    });
+
+    container.addEventListener('mouseleave', () => {
+      timerId = setInterval(moveNext, 1000);
+    });
+
+    const btnNext = document.querySelector('button:nth-child(2)');
+    btnNext.addEventListener('click', moveNext);
+
+    const btnPrev = document.querySelector('button:nth-child(1)');
+    btnPrev.addEventListener('click', movePrev);
+
+    const lis = document.querySelectorAll('ul li');
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].addEventListener('click', function () {
+        displayImg(i + 1);
+        count = i + 1;
+      })
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>

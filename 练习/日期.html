@@ -1,0 +1,120 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-14 09:56:41
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-14 13:28:55
+ * @FilePath: \test\日期.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 350px;
+      height: 300px;
+      background-color: brown;
+      margin-top: 100px;
+      margin-left: 100px;
+      padding: 10px;
+    }
+
+    #date {
+      font-style: 14px;
+      color: #fff;
+      text-align: center;
+      margin-block-end: 0;
+      margin-block-start: 0;
+    }
+
+    h4 {
+      text-align: center;
+      color: #fff;
+      margin-block-end: 0;
+      margin-block-start: 0;
+    }
+
+    .digital {
+      font-size: 40px;
+      color: #fff;
+      background-color: #000;
+      padding: 5px 10px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
+    }
+
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      gap: 10px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .separator {
+      font-size: 40px;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 10px;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <h2 id="date"></h2>
+    <h4>下班倒计时</h4>
+    <div class="counter">
+      <span class="digital">08</span>
+      <span class="separator">:</span>
+      <span class="digital">02</span>
+      <span class="separator">:</span>
+      <span class="digital">00</span>
+    </div>
+  </div>
+  <script>
+
+    const h2 = document.querySelector('#date');
+    const date = new Date();
+    h2.innerHTML = `今天是${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+
+    // 获取下班时间的时间戳
+    const workEndTime = +new Date(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} 18:00:00`);
+
+    setInterval(function () {
+      // 获取当前时间的时间戳
+      const current = +new Date();
+      const diff = workEndTime - current;
+      // 计算剩余时间
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      // 格式化时间
+      const formattedHours = hours < 10 ? `0${hours}` : hours;
+      const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+      const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+      // 更新倒计时
+      document.querySelector('.digital:nth-child(1)').innerHTML = formattedHours;
+      document.querySelector('.digital:nth-child(3)').innerHTML = formattedMinutes;
+      document.querySelector('.digital:nth-child(5)').innerHTML = formattedSeconds;
+
+    }, 1000);
+  </script>
+</body>
+
+</html>

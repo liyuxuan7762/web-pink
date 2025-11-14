@@ -1,0 +1,85 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-11 16:37:41
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-11 16:49:25
+ * @FilePath: \test\搜索框.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      border: 0;
+      padding: 0;
+    }
+
+    .search {
+      width: 150px;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #ccc;
+      height: 30px;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border: 1px solid #ccc;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding: 0;
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="search">
+    <input type="text" placeholder="请输入搜索内容">
+    <ul class="search-result">
+      <li>搜索结果1</li>
+      <li>搜索结果2</li>
+      <li>搜索结果3</li>
+      <li>搜索结果4</li>
+      <li>搜索结果5</li>
+      <li>搜索结果6</li>
+    </ul>
+  </div>
+
+  <script>
+    const input = document.querySelector('input');
+    const ul = document.querySelector('ul');
+
+    // 添加获取焦点事件
+    input.addEventListener('focus', () => {
+      ul.style.display = 'block';
+      input.style.borderColor = 'red';
+      ul.style.borderColor = 'red';
+    });
+
+    // 添加失去焦点事件
+    input.addEventListener('blur', () => {
+      ul.style.display = 'none';
+      input.style.borderColor = '#ccc';
+      ul.style.borderColor = '#ccc';
+    });
+
+
+
+  </script>
+</body>
+
+</html>

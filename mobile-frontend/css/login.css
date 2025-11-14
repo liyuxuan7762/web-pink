@@ -1,0 +1,189 @@
+:root {
+    --text-color: #16C2A3;
+    --text1: #000000;
+    --text2: hsl(220, 5%, 25%);
+    --text3: #C3C3C5;
+    --text4: #D9DBDE;
+    --text5: #121826;
+    --text6: #3C3E42;
+    --text7: #DEDEDE;
+    --text8: #848484;
+}
+
+body {
+    padding-top: 44px;
+}
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 44px;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: #fff;
+}
+
+.header .back {
+    font-size: 24px;
+    line-height: 44px;
+}
+
+.header a {
+    font-size: 17px;
+    line-height: 44px;
+    color: var(--text-color);
+    opacity: 0.9000000357627869;
+    font-family: PingFang SC;
+    font-weight: medium;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 25px;
+    padding: 0 15px;
+}
+
+.title h1 {
+    color: var(--text5);
+    font-family: PingFang SC;
+    font-weight: medium;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.title a {
+    color: var(--text6);
+    font-family: PingFang SC;
+    font-weight: regular;
+    font-size: 15px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.form {
+    margin-top: 45px;
+    padding: 0 15px;
+}
+
+.form input {
+    width: 100%;
+    height: 51.5px;
+    border: 1px solid var();
+}
+
+.form input::placeholder {
+    color: var(--text7);
+    font-family: PingFang SC;
+    font-weight: regular;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.form form {
+    position: relative;
+}
+
+.form img {
+    position: absolute;
+    bottom: 150px;
+    right: 15px;
+    width: 15px;
+    height: 15px;
+}
+
+.form .agree {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    color: #3C3E42;
+    font-family: PingFang SC;
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+.form .agree i {
+    margin-right: 5px;
+}
+
+.form .agree a {
+    color: var(--text-color);
+}
+
+.form button {
+    width: 100%;
+    height: 44px;
+    margin-top: 22px;
+    border-radius: 22px;
+    background: #FAFAFA;
+    color: var(--text4);
+    font-family: PingFang SC;
+    font-weight: medium;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.form .forget {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    color: var(--text8);
+    font-family: PingFang SC;
+    font-weight: regular;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.third-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    padding: 0 15px;
+    color: var(--text3);
+    font-family: PingFang SC;
+    font-weight: regular;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.third-title::before,
+.third-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 1px;
+    background: var(--text3);
+}
+
+.third-title div {
+    margin: 0 15px;
+}
+
+.third-party {
+    text-align: center;
+}
+
+.third-party img {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+}

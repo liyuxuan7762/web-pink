@@ -1,0 +1,307 @@
+/*
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-08-19 15:50:24
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-13 16:30:09
+ * @FilePath: \mobile-frontend\css\index.css
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+:root {
+  --text1: #121826;
+  --text2: #3C3E42;
+  --text3: #848484;
+  --text4: #979797;
+  --text5: #C3C3C5;
+  --text6: #6F6F6F;
+  --text-green: #2CB5A5;
+  --line-gray: #EDEDED;
+}
+
+body {
+  padding-bottom: 53px;
+}
+
+/* 头部 */
+.header {
+  position: relative;
+  height: 130px;
+}
+
+.header::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  height: 100px;
+  width: 100%;
+  background: linear-gradient(180deg, #3ECEC5D8 0%, #26BCC6 100%);
+  border-bottom-left-radius: 40px 10px;
+  border-bottom-right-radius: 40px 10px;
+}
+
+.search {
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 345px;
+  height: 40px;
+  border-radius: 22px;
+  background-color: #fff;
+  line-height: 40px;
+  font-size: 13px;
+  padding-left: 22px;
+  box-shadow: 0px 7.5px 11px -3.5px #E0ECFAD1;
+  color: var(--text4);
+}
+
+.header h1 {
+  position: relative;
+  font-size: 22px;
+  color: #fff;
+  top: 30px;
+  left: 15px;
+  font-weight: 400;
+}
+
+/* 导航 */
+.home-nav {
+  /* 左右padding 15px */
+  padding: 0 15px;
+}
+
+.home-nav .nav-first {
+  margin-bottom: 15px;
+}
+
+.home-nav .nav-first ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-nav .nav-first ul li {
+  flex: 1;
+  text-align: center;
+  color: var(--text1);
+}
+
+.home-nav .nav-first ul li img {
+  width: 40px;
+  height: 40px;
+}
+
+.home-nav .nav-first ul li h3 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.home-nav .nav-first ul li p {
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.home-nav .nav-second ul li img {
+  width: 31px;
+  height: 31px;
+}
+
+.home-nav .nav-second ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-nav .nav-second ul li {
+  flex: 1;
+  text-align: center;
+}
+
+.home-nav .nav-second ul li p {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* banner制作 */
+.banner {
+  height: 120px;
+  padding: 10px 15px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+
+/* tab区域制作 */
+.home-tab {
+  padding: 0 15px;
+}
+
+.home-tab .tab-card {
+  position: sticky;
+  top: 0;
+  background-color: #FFF;
+}
+
+.home-tab .tab-card ul {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+
+.home-tab .tab-card ul li {
+  width: 53px;
+  height: 44px;
+  font-size: 14px;
+  color: var(--text4);
+  text-align: center;
+  line-height: 44px;
+  cursor: pointer;
+}
+
+
+.home-tab .tab-card ul .active {
+  color: var(--text1);
+  font-weight: 700;
+}
+
+.home-tab .tab-card .line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-green);
+  border-radius: 2px;
+  transform: translateX(18px);
+  transition: all 0.3s ease-in-out;
+}
+
+.tab-content .tab-item {
+  padding-top: 15px;
+  border-bottom: 1px solid var(--line-gray);
+}
+
+.tab-content .tab-item .tab-item-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-content .tab-item .tab-item-header img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.tab-content .tab-item .tab-item-header .tab-item-desc {
+  flex: 1;
+  margin-left: 10px;
+  /* 移除 vertical-align: bottom; 改用 Flexbox 垂直居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  /* 确保容器高度充满父元素 */
+}
+
+.tab-content .tab-item .tab-item-header .tab-item-desc h4 {
+  font-size: 14px;
+  color: var(--text2);
+}
+
+.tab-content .tab-item .tab-item-header .tab-item-desc p {
+  font-size: 10px;
+  color: var(--text5);
+}
+
+.tab-content .tab-item .tab-item-header .button {
+  width: 66px;
+  height: 27px;
+  padding: 5px 15px;
+  font-size: 11px;
+  color: var(--text-green);
+  border-radius: 13.5px;
+  border: 1px solid var(--text-green);
+}
+
+.tab-content .tab-item .tab-item-content {
+  font-size: 16px;
+  color: var(--text1);
+  margin-top: 8px;
+}
+
+.tab-content .tab-item .tab-item-content .tag {
+  display: block;
+  margin: 6px 0px;
+  font-size: 12px;
+  color: var(--text-green);
+}
+
+.tab-content .tab-item .tab-item-content p {
+  font-size: 14px;
+  color: var(--text6);
+  line-height: 24px;
+}
+
+.tab-content .tab-item .tab-item-content .pic {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.tab-content .tab-item .tab-item-content .pic img {
+  width: 106px;
+  height: 106px;
+  border-radius: 15px;
+}
+
+.tab-content .tab-item .tab-item-content .tab-item-footer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text5);
+  margin-bottom: 15.5px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+.footer ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.footer ul li img {
+  width: 18px;
+  height: 18px;
+}
+
+.footer ul li {
+  flex: 1;
+  height: 51px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer ul li p {
+  font-size: 10px;
+  color: var(--text6);
+  margin-top: 7px;
+}

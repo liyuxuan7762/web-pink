@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 对象解构用于接收的变量必须和属性名相同
+    const { uname, gender, city, salary } = { name: '张三', gender: '男', city: '北京', salary: 3000 }
+    console.log(uname, gender, city, salary); // 张三 男 北京 3000
+
+    // 如果用于接收的变量的名称和属性名不同，需要使用改名机制
+    const { uname: username, age } = { name: '张三', age: 18 };
+    console.log(username, age); // 张三 18
+
+
+    // 对象数组结构
+    const pigs = [{ name: '佩奇', age: 1 }, { name: '乔治', age: 2 }];
+    const [{ name: pig1Name, age: pig1Age }, { name: pig2Name, age: pig2Age }] = pigs;
+    console.log(pig1Name, pig1Age);
+    console.log(pig2Name, pig2Age); // 乔治 2
+
+    (() => {
+      // 多级对象解构
+      const person = {
+        name: '张三',
+        age: 18,
+        address: {
+          city: '北京',
+          district: '东城区'
+        }
+      };
+      const { name, age, address: { city, district } } = person;
+      console.log(name, age, city, district); // 张三 18 北京 东城区
+    })();
+
+  </script>
+</body>
+
+</html>

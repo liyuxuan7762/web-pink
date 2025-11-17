@@ -2,7 +2,7 @@
  * @Author: Li 776239423@qq.com
  * @Date: 2025-09-16 09:42:20
  * @LastEditors: Li 776239423@qq.com
- * @LastEditTime: 2025-11-13 20:56:21
+ * @LastEditTime: 2025-11-15 16:33:39
  * @FilePath: \web\index.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -496,7 +496,7 @@
         <ul>
             <li>
                 <div class="imgContainer">
-                    <img src="/uploads/topic1.png">
+                    <img src="./uploads/topic1.png">
                 </div>
                 <div class="comment">
                     <div class="comment-left">
@@ -510,7 +510,7 @@
             </li>
             <li>
                 <div class="imgContainer">
-                    <img src="/uploads/topic2.png">
+                    <img src="./uploads/topic2.png">
                 </div>
                 <div class="comment">
                     <div class="comment-left">
@@ -524,7 +524,7 @@
             </li>
             <li>
                 <div class="imgContainer">
-                    <img src="/uploads/topic3.png">
+                    <img src="./uploads/topic3.png">
                 </div>
                 <div class="comment">
                     <div class="comment-left">
@@ -717,6 +717,34 @@
             });
 
         })();
+
+
+        function readerUsername() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.querySelector('.header .container ul li:nth-child(1)').innerHTML = `
+                    <a href="javascript:void(0);"><span class="iconfont customer-service.icon-customer-service"></span>${username}</a>
+                `;
+                document.querySelector('.header .container ul li:nth-child(3)').innerHTML = `
+                    <a href="javascript:void(0);">退出登录</a>
+                `;
+            } else {
+                document.querySelector('.header .container ul li:nth-child(1)').innerHTML = `
+                    <a href="login.html">请先登录</a>
+                `;
+                document.querySelector('.header .container ul li:nth-child(3)').innerHTML = `
+                    <a href="javascript:void(0);">免费注册</a>
+                `;
+            }
+        }
+
+
+        document.querySelector('.header .container ul li:nth-child(3)').addEventListener('click', function () {
+            localStorage.removeItem('username');
+            readerUsername();
+        })
+
+        readerUsername();
     </script>
 </body>
 

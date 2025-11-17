@@ -1,0 +1,88 @@
+.login {
+  width: 100%;
+}
+
+.login .content {
+  position: relative;
+}
+
+.login img {
+  width: 100%;
+}
+
+.loginArea {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  transform: translate(0, -50%);
+  width: 400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  /* 背景色一种很浅的灰色 #f5f5f5 并设置透明度 */
+  background-color: rgba(245, 245, 245, 0.6);
+  border-radius: 10px;
+  /* 增加一点阴影效果让整个盒子更加立体 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* 整个盒子设置高斯模糊的效果 */
+  backdrop-filter: blur(10px);
+}
+
+.loginArea .title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.loginArea .title a {
+  font-size: 20px;
+  color: #333;
+  padding: 5px 0;
+}
+
+.activeTab {
+  border-bottom: 3px solid #00BE9A;
+}
+
+.loginArea input {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  border: 2px solid #00BE9A;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  /* background-color: transparent; */
+}
+
+.login button {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border: 0;
+  background-color: #00BE9A;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.login button:hover {
+  background-color: #00997A;
+}
+
+
+.loginWithQR {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginWithQR img {
+  width: 150px;
+  height: 150px;
+}

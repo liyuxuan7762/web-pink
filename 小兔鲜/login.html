@@ -1,0 +1,164 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-09-16 09:42:20
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-15 16:20:40
+ * @FilePath: \web\index.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小兔鲜儿 -- 新鲜 · 亲民 · 快捷</title>
+    <!-- 给网页添加图标 -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <!-- 引入iconfont字体图标 -->
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+
+    <!-- 1. 网页顶部导航栏 -->
+    <!-- 1.1 顶栏 -->
+    <section class="header">
+        <div class="container">
+            <ul>
+                <li><a href="#">请先登录</a></li>
+                <li class="sep"></li>
+                <li><a href="#">免费注册</a></li>
+                <li class="sep"></li>
+                <li><a href="#">我的订单</a></li>
+                <li class="sep"></li>
+                <li><a href="#">会员中心</a></li>
+                <li class="sep"></li>
+                <li><a href="#">帮助中心</a></li>
+                <li class="sep"></li>
+                <li><a href="#">在线客服</a></li>
+                <li class="sep"></li>
+                <li class="phone"><a href="#"><span class="iconfont icon-mobile-phone"></span>手机版</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="login">
+        <div class="content">
+            <img src="./uploads/banner1.png" alt="">
+            <div class="loginArea">
+                <div class="title">
+                    <!-- 分为账户登录和二维码登录 -->
+                    <a href="#" class="activeTab">账户登录</a>
+                    <a href="#">二维码登录</a>
+                </div>
+                <div class="loginWithAccount">
+                    <form id="loginForm">
+                        <div class="form-item">
+                            <input required type="text" id="username" placeholder="请输入用户名">
+                        </div>
+                        <div class="form-item">
+                            <input required type="password" id="password" placeholder="请输入密码">
+                        </div>
+                        <div class="form-item">
+                            <button type="submit">登录</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="loginWithQR">
+                    <img src="./images/wechat.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 2. 网页底部 -->
+    <section class="footer">
+        <div class="container">
+            <div class="top">
+                <ul class="solgan">
+                    <li>
+                        <p class="one" style="--i:0"></p>
+                        <h3>价格亲民</h3>
+                    </li>
+                    <li>
+                        <p class="two" style="--i:1"></p>
+                        <h3>物流快捷</h3>
+                    </li>
+                    <li>
+                        <p class="three" style="--i:2"></p>
+                        <h3>品质新鲜</h3>
+                    </li>
+                    <li>
+                        <p class="four" style="--i:3"></p>
+                        <h3>服务保障</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="service">
+                <div class="service-left">
+                    <dl>
+                        <dt>关于我们</dt>
+                        <dd><a href="#">联系我们</a></dd>
+                        <dd><a href="#">加入我们</a></dd>
+                        <dd><a href="#">合作联系</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>服务支持</dt>
+                        <dd><a href="#">支付帮助</a></dd>
+                        <dd><a href="#">退款帮助</a></dd>
+                        <dd><a href="#">订单帮助</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>关注我们</dt>
+                        <dd><a href="#">微信</a></dd>
+                        <dd><a href="#">微博</a></dd>
+                        <dd><a href="#">抖音</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>服务热线</dt>
+                        <dd><a href="#">在线客服<span class="iconfont icon-customer-service"></span></a></dd>
+                        <dd><a href="#">客服电话 400-888-8888</a></dd>
+                        <dd><a href="#">工作时间 周一至周日 8:00-18:00</a></dd>
+
+                    </dl>
+                </div>
+                <div class="service-right">
+                    <ul>
+                        <li>
+                            <img src="./images/wechat.png">
+                            <p>微信公众号</p>
+                        </li>
+                        <li>
+                            <img src="./images/wechat.png">
+                            <p>APP下载二维码</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>
+                    关于我们 | 帮助中心 | 售后服务 | 配送与验收 | 商务合作 | 搜索推荐 | 友情链接
+                </p>
+                <p>CopyRight © 小兔鲜</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const loginForm = document.querySelector('#loginForm');
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 将用户名保存到localStorage
+            const username = document.querySelector('#username').value;
+            localStorage.setItem('username', username);
+
+            window.location.href = './index.html';
+        });
+    </script>
+</body>
+
+</html>

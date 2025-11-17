@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+  <div class="content"></div>
+
   <script>
 
     // 对象解构用于接收的变量必须和属性名相同
@@ -38,6 +41,47 @@
       const { name, age, address: { city, district } } = person;
       console.log(name, age, city, district); // 张三 18 北京 东城区
     })();
+
+
+    // 生成一个假数据用于测试ajax返回值，需要包含code, message, 和data字段
+    const fakeData = {
+      code: 200,
+      message: 'success',
+      data: [{
+        name: '张三',
+        age: 18,
+        city: '北京',
+        salary: 3000
+      },
+      {
+        name: '李四',
+        age: 20,
+        city: '上海',
+        salary: 4000
+      },
+    ]
+    };
+
+    function renderData({data}) {
+      const content = document.querySelector('.content');
+
+      for (let i = 0; i < data.length; i++) {
+        
+        const p = document.createElement('p');
+        const {name, age, city, salary} = data[i];
+        p.innerHTML = `
+          姓名：${name},
+          年龄：${age},
+          城市：${city},
+          薪资：${salary}
+        `;
+
+        content.appendChild(p);
+
+      }
+    }
+
+    renderData(fakeData);
 
   </script>
 </body>

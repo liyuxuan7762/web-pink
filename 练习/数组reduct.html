@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 创建测试数据，数组每个元素都是一个对象
+    const arr = [
+      {
+        name: '佩奇',
+        age: 1,
+      },
+      {
+        name: '乔治',
+        age: 2,
+      },
+      {
+        name: '乔治',
+        age: 3,
+      },
+    ];
+
+    // 计算数组中所有对象的年龄总和
+    const totalAge = arr.reduce((prev, current) => prev.age + current.age, 0);
+    console.log(totalAge); // 6
+  </script>
+</body>
+</html>

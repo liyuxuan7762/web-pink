@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Object常用静态方法
+    // 1. Object.assign()
+
+    // 深拷贝对象
+    const obj1 = {
+      name: '佩奇',
+      age: 1,
+    }
+
+    let newObj = [];
+    Object.assign(newObj, obj1);
+    newObj.name = '乔治';
+    console.log(newObj.name);
+
+    // 合并对象
+    const obj2 = {
+      sex: '男',
+    }
+    Object.assign(newObj, obj2);
+    console.log(newObj); // [name: '乔治', age: 1, sex: '男']
+    
+
+    // 2. keys() values()
+    // keys() 返回对象的所有属性名
+    console.log(Object.keys(newObj)); // ['name', 'age', 'sex']
+    // values() 返回对象的所有属性值
+    console.log(Object.values(newObj)); // ['乔治', 1, '男']
+  </script>
+</body>
+</html>

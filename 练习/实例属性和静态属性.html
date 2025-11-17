@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 只要是new出来的对象，就有实例属性
+    
+    function Pig(uname, age) {
+      this.uname = uname;
+      this.age = age;
+      this.eys = 2;
+    }
+
+    // 实例属性：每个对象都有自己的属性，互不干扰
+    const pig = new Pig('佩奇', 1);
+    console.log(pig);
+    const pig2 = new Pig('乔治', 2);
+    console.log(pig2);
+
+    // 静态属性：所有对象共享的属性 通过构造函数访问 类似static
+    // 静态属性必须通过构造函数.属性名进行创建
+    Pig.eys = 2;
+    Pig.say = function () {
+      console.log('我是一个佩奇');
+    }
+    console.log(Pig.eys);
+
+    // 调用静态方法
+    Pig.say();
+    // 静态方法只能通过构造函数调用，不能通过实例对象调用
+    pig2.say(); // 实例属性和静态属性.html:35 Uncaught TypeError: pig2.say is not a function
+  </script>
+</body>
+</html>

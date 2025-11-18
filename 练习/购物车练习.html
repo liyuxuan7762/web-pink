@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .shopping_cart {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .theader .header, .info {
+      flex: 1;
+    }
+    .header {
+      font-weight: bold;
+      text-align: center;
+    }
+    .info {
+      text-align: center;
+    }
+    .theader {
+      background-color: gray;
+    }
+
+    .total {
+      text-align: right;
+      padding: 10px 0;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="shopping_cart">
+      <div class="item theader">
+        <div class="header">名称</div>
+        <div class="header">规格</div>
+        <div class="header">赠品</div>
+        <div class="header">单价</div>
+        <div class="header">数量</div>
+        <div class="header">总价</div>
+      </div>
+    </div>
+    <div class="total">
+      <span>一共10件商品，共计1000元</span>
+    </div>
+  <script>
+
+    // 基于上面的格式生成测试数据
+    const cart = [
+      {
+        name: '吹风机',
+        price: 100,
+        gift: '吹风机套装,洗发水',
+        quantity: 2,
+        spec: {
+          color: '白色',
+          power: '2000W',
+        }
+      },
+      {
+        name: '可口可乐',
+        price: 50,
+        gift: '乐事薯片,洗发水',
+        quantity: 1,
+        spec: {
+          color: '红色',
+          size: '330ml',
+        }
+      },
+      {
+        name: '百事可乐',
+        price: 50,
+        quantity: 1,
+        spec: {
+          color: '蓝色',
+          size: '330ml',
+        }
+      },
+    ];
+
+    const cartContainer = document.querySelector('.shopping_cart');
+    cart.forEach(item => {
+      const {name, price, quantity, gift = '', spec} = item;
+
+      const div = document.createElement('div');
+      div.classList.add('item');
+      
+      let str = '';
+
+      str += `<div class = 'info'>${name}</div>`;
+      str += `<div class = 'info'>${Object.values(spec).join('/')}</div>`;
+      str += `<div class = 'info'>${gift ? gift.split(',').map(item => '【赠品】' + item).join('') : ''}</div>`;
+      str += `<div class = 'info'>${price}</div>`;
+      str += `<div class = 'info'>${quantity}</div>`;
+      str += `<div class = 'info'>${(price * quantity).toFixed(2)}</div>`;
+
+      div.innerHTML = str;
+      cartContainer.appendChild(div);
+    });
+
+    const totalMoney = cart.reduce((prev, current) => {
+      return prev + current.quantity * current.price;
+    }, 0);
+
+    const totalQuantity = cart.reduce((prev, current) => {
+      return prev + current.quantity;
+    }, 0);
+
+    const total = document.querySelector('.total');
+    total.innerHTML = `<span>一共${totalQuantity}件商品，共计${totalMoney.toFixed(2)}元</span>`;
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-19 21:33:14
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-19 21:36:22
+ * @FilePath: \web-pink\练习\this指向.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const pig = {
+      name: '佩奇',
+      age: 2,
+      sex: '母',
+      sayName() {
+        console.log(this);
+      },
+      sayAge: () => {
+        console.log(this);
+      }
+    }
+
+    pig.sayName(); // 指向对象
+    pig.sayAge(); // 指向上层作用域中的this
+  </script>
+</body>
+
+</html>

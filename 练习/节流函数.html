@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 400px;
+      height: 400px;
+      background-color: pink;
+      text-align: center;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    鼠标移动我会触发事件
+  </div>
+
+  <script>
+    // 防抖（Debounce）：事件触发后反复触发只执行最后一次。
+    //  节流（Throttle）：事件触发后固定时间内只执行一次。
+
+    // 1. 创建一个定时器变量
+    // 2. 判断当前定时器是否已经存在，如果存在，则不需要创建新的定时器
+    // 3. 如果定时器不存在，则需要创建一个新的定时器
+    // 4. 在定时器里面执行要执行的函数
+    // 5. 同时还需要在定时器里清空定时器 (函数执行完毕后清空定时器，等待下一次新的定时器的创建)
+
+    let i = 0;
+    function move() {
+      document.querySelector('.box').innerHTML = i++;
+    }
+
+    document.querySelector('.box').addEventListener('mousemove', throttle(move, 1000));
+
+    function throttle(fn, time) {
+      let timer = null;
+      return function () {
+        if (timer) return;
+        timer = setTimeout(function () {
+          fn();
+          timer = null; // 为什么不用clearTimeout(timer)？ 在setTimeout中是无法清除定时器的，所以必须使用timer=null来清空定时器
+
+        }, time);
+      };
+    }
+
+  </script>
+</body>
+
+</html>

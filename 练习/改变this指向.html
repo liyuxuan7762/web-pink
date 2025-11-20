@@ -1,0 +1,46 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-20 08:53:49
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-20 09:00:03
+ * @FilePath: \web-pink\练习\改变this指向.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function test(x, y) {
+      console.log(this);
+      return x + y;
+    }
+    test(); // this指向windows 因为是window.test();
+
+    // 通过call来改变this指向 call(需要改变的this指向, 实参1, 实参2, ...)
+    const obj = {
+      name: '佩奇',
+    }
+    test.call(obj, 1, 2); // this指向obj
+
+    // 实参也可以通过数组传递，需要使用apply方法 apply(需要改变的this指向, [实参1, 实参2, ...])
+    test.apply(obj, [1, 2]); // this指向obj
+
+    // apply实际上是把数组解构了，然后依次传递给函数
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    console.log(Math.max.apply(null, arr));
+
+    // apply 和 call 都是会立即执行函数，如果仅仅是想改变this指向，而不执行函数，
+    // 可以使用 bind 方法 bind(需要改变的this指向, 实参1, 实参2, ...)
+    const fn = test.bind(obj, 1, 2);
+    fn(); // this指向obj
+  </script>
+</body>
+
+</html>

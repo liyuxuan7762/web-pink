@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <video src="video/Rework test on DM4.mp4" controls muted></video>
+
+  <script>
+    const video = document.querySelector('video');
+
+    function saveVideoTime() {
+      localStorage.setItem('videoTime', video.currentTime);
+    }
+
+    video.addEventListener('timeupdate', throttle(saveVideoTime, 1000));
+
+    video.addEventListener('loadeddata', () => {
+      video.currentTime = localStorage.getItem('videoTime') || 0;
+    });
+
+    function throttle(fn, time) {
+      let timer = null;
+      return function () {
+        if (timer) return;
+        timer = setTimeout(function () {
+          fn();
+          timer = null; // 为什么不用clearTimeout(timer)？ 在setTimeout中是无法清除定时器的，所以必须使用timer=null来清空定时器
+
+        }, time);
+      };
+    }
+  </script>
+</body>
+
+</html>

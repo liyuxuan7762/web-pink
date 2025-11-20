@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>点我</button>
+
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+      this.disabled = true; // 因为是普通函数而不是箭头函数，所以this指向调用者，也就是button
+
+      // 2秒后再把按钮启用
+      setTimeout(() => {
+        this.disabled = false;
+      }, 2000); // 这里可以使用箭头函数，因为箭头函数没有this，就往外层作用域找，
+      // 这里的外层作用域就是事件处理函数，事件处理函数的this指向调用者，也就是button
+
+      setTimeout(function () {
+        this.disabled = true;
+      }, 2000); // 这样写不正确，因为是window.setTimeOut 所以函数里面的this实际上指向的是window
+
+      // 使用普通函数的正确写法是使用bind
+      setTimeout(function () {
+        this.disabled = true;
+      }.bind(this), 2000); // 这样写正确，因为bind会返回一个新的函数，这个函数的this指向我们指定的对象，这里就是button
+    })
+  </script>
+</body>
+
+</html>

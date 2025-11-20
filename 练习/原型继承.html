@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const Person = {
+      eyes: 2,
+      hands: 2,
+      legs: 2,
+    }
+
+    // 让男人和女人继承Person
+    function Man() {
+    }
+
+    Man.prototype = Person;
+    Man.prototype.constructor = Man;
+
+    // 让女人继承Person
+    function Woman() {
+    }
+  </script>
+</body>
+</html>

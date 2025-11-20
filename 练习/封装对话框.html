@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 200px;
+      background-color: gray;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      padding: 0 20px
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    i {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: deepskyblue;
+      padding: 10px;
+      font-style: normal;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">打开对话框</button>
+  <button id="btn2">对话框</button>
+
+
+  <script>
+    
+    function Modal(title, content) {
+      // 创建div
+      this.modal = document.createElement('div');
+      this.modal.classList.add('modal');
+      this.modal.innerHTML = `
+        <div class="header">
+          <h2>${title}</h2>
+          <i>X</i>
+        </div>
+        <div class="content">
+          <p>${content}</p>
+        </div>
+      `;
+    }
+
+    Modal.prototype.open = function() {
+
+      const instance = document.querySelector('.modal')
+      if (instance) {
+        instance.remove();
+      }
+      document.body.append(this.modal);
+
+      this.modal.querySelector('i').addEventListener('click', () => {
+        this.close();
+      });
+    }
+
+    Modal.prototype.close = function() {
+      this.modal.remove();
+    }
+
+
+    const button = document.querySelector('button');
+    button.addEventListener('click', () => {
+      const modal = new Modal('对话框标题', '对话框内容');
+      modal.open();
+    });
+
+    const btn2 = document.querySelector('#btn2');
+    btn2.addEventListener('click', () => {
+      const modal = new Modal('对话框标题1', '对话框内容1');
+      modal.open();
+    });
+  </script>
+</body>
+</html>

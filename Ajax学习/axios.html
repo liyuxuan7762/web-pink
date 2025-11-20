@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/axios.js"></script>
+</head>
+
+<body>
+  <button id="btn-get">发送GET请求</button>
+  <button id="btn-post">发送POST请求</button>
+  <button id="btn-axios">发送axios请求</button>
+
+  <script>
+
+    axios.defaults.baseURL = 'http://127.0.0.1:3000';
+
+    document.querySelector('#btn-get').addEventListener('click', function () {
+      axios.get('/axios', { a: 100, b: 200 })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    });
+
+
+    document.querySelector('#btn-post').addEventListener('click', function () {
+      axios.post('/axios', {
+        username: 'admin',
+        password: '123456'
+      }, {
+        // 其他参数
+        // query string
+        params: {
+          a: 100,
+          b: 200
+        },
+        headers: {
+          height: 200,
+          width: 300
+        }
+      }
+      ).then(function (response) {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    });
+
+
+    document.querySelector('#btn-axios').addEventListener('click', function () {
+
+      axios({
+        url: '/axios',
+        method: 'post',
+        data: {
+          username: 'admin',
+          password: '123456'
+        },
+        params: {
+          a: 100,
+          b: 200
+        },
+        headers: {
+          height: 200,
+          width: 300
+        }
+      }).then(resp => {
+        console.log(resp);
+      }).catch(err => {
+        console.log(err);
+      });
+
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-20 12:53:08
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-20 14:51:30
+ * @FilePath: \web-pink\Ajax学习\原生ajax get.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .response {
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js" />
+
+  <button id="get-btn">发送GET请求</button>
+  <button id="cancel">取消发送</button>
+  <div class="response"></div>
+
+  <script>
+    const getBtn = document.querySelector('#get-btn');
+    const response = document.querySelector('.response');
+    getBtn.addEventListener('click', () => {
+
+      $.get('http://127.0.0.1:3000/test', { a: 100, b: 200 }, function (data) {
+        response.innerHTML = data;
+      }, 'json');
+      /**
+       * 这里的json 就是 xhr.setType = 'json' 一个作用
+       * 但是这里的json 还可以解析服务器返回的json 字符串
+       */
+
+      $.post('http://127.0.0.1:3000/test', { a: 100, b: 200 }, function (data) {
+        response.innerHTML = data;
+      }, 'json');
+
+      $.ajax({
+        url: 'http://127.0.0.1:3000/test',
+        type: 'POST',
+        data: { a: 100, b: 200 },
+        success: function (data) {
+          response.innerHTML = data;
+        },
+        dataType: 'json',
+        timeout: 3000,
+        error: function () {
+          response.innerHTML = '请求超时';
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>

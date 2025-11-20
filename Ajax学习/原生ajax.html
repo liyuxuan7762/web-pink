@@ -1,0 +1,86 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-20 12:53:08
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-20 14:06:11
+ * @FilePath: \web-pink\Ajax学习\原生ajax get.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .response {
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <button id="get-btn">发送GET请求</button>
+  <button id="post-btn">发送POST请求</button>
+  <div class="response"></div>
+
+  <script>
+    const getBtn = document.querySelector('#get-btn');
+    const response = document.querySelector('.response');
+    getBtn.addEventListener('click', () => {
+
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://127.0.0.1:3000/test');
+      xhr.send();
+
+      xhr.addEventListener('readystatechange', () => {
+        // ready status的所有状态
+        // 0: 请求未初始化
+        // 1: 服务器连接已建立
+        // 2: 请求已接收
+        // 3: 请求处理中
+        // 4: 请求已完成，且响应已就绪
+
+        // 只有当状态码为4的时候才说明请求已经完成
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            console.log(xhr.status); // HTTP响应码 200
+            console.log(xhr.statusText); // 状态字符串 OK
+            console.log(xhr.getAllResponseHeaders); // 所有响应头
+
+            response.innerHTML = xhr.response; // 响应体
+          }
+        }
+      });
+
+    });
+
+    const postBtn = document.querySelector('#post-btn');
+    postBtn.addEventListener('click', () => {
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.open('POST', 'http://127.0.0.1:3000/test');
+      xhr.send('POST数据');
+      xhr.contentType = 'json'; // 获取到后端返回的值后会自动转换成JSON 对象
+
+      xhr.addEventListener('readystatechange', () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status >= 200 && xhr.status < 300) {
+
+            response.innerHTML = xhr.response; // 响应体
+          }
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>

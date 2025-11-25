@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="gender === 1">我是男的</div>
+    <div v-else>我是女的</div>
+
+    <hr></hr>
+
+    <div v-if="score >= 90">成绩优秀</div>
+    <div v-else-if="score >= 80">成绩良好</div>
+    <div v-else-if="score >= 60">成绩及格</div>
+    <div v-else>成绩不及格</div>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        gender: 2,
+        score: 50
+      }
+    });
+  </script>
+</body>
+</html>

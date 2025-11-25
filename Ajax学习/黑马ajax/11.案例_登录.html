@@ -67,19 +67,65 @@
       <form>
         <div class="mb-3">
           <label for="username" class="form-label">账号名</label>
-          <input type="text" class="form-control username">
+          <input type="text" name="username" class="form-control username">
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">密码</label>
-          <input type="password" class="form-control password">
+          <input type="password" name="password" class="form-control password">
         </div>
         <button type="button" class="btn btn-primary btn-login"> 登 录 </button>
       </form>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../js/form-serialize.js"></script>
   <script>
-    // 目标1：点击登录时，用户名和密码长度判断，并提交数据和服务器通信
+    
+    const btn = document.querySelector('.btn-login');
+
+    btn.addEventListener('click', () => {
+      // const username = document.querySelector('.username').value;
+      // const password = document.querySelector('.password').value;
+
+      const formData = document.querySelector('form');
+      const data = serialize(formData, {hash: true, empty: true});
+
+      if (data.username === '' || data.password === '') {
+        showAlert('账号或密码不能为空', false);
+        return;
+      }
+
+      axios({
+        method: 'post',
+        url: 'http://hmajax.itheima.net/api/login',
+        data: data
+      }).then(resp => {
+        showAlert('登录成功', true);
+        return;
+      }).catch(error => {
+        showAlert(error.response.data.message, false);
+      });
+    });
+
+    function showAlert(msg, isSuccess) {
+      const alert = document.querySelector('.alert');
+
+      alert.classList.remove('alert-success');
+      alert.classList.remove('alert-danger');
+      if (isSuccess) {
+        alert.classList.add('alert-success');
+      } else {
+        alert.classList.add('alert-danger');
+      }
+      alert.classList.add('show');
+      
+      alert.textContent = msg;
+
+      setTimeout(() => {
+        alert.classList.remove('show');
+      }, 2000);
+    }
+
     
   </script>
 </body>

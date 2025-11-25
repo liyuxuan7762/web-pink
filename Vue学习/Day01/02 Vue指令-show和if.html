@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1, .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- STEO01 创建一个容器 -->
+  <div id="app">
+    <div class="box1" v-show="isShow">使用v-show控制盒子显示和隐藏</div>
+    <div class="box2" v-if="isShow">使用v-if控制盒子显示和隐藏</div>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isShow: false
+      }
+    });
+  </script>
+
+</body>
+</html>

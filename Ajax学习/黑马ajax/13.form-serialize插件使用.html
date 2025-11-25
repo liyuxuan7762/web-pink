@@ -19,9 +19,14 @@
   <!-- 
     目标：在点击提交时，使用form-serialize插件，快速收集表单元素值
   -->
+
+  <script src="../js/form-serialize.js"></script>
   <script>
     document.querySelector('.btn').addEventListener('click', () => {
-      
+      const formData = document.querySelector('.example-form');
+      // hash -> true 表示返回对象 如果为false 表示返回字符串 a=1&b=2
+      // empty -> true 表示收集空值
+      console.log(serialize(formData, {hash: true, empty: true}));
     })
   </script>
 </body>

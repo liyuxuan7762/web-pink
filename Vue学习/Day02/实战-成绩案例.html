@@ -1,0 +1,110 @@
+<!--
+ * @Author       : Wang Chong(3436971707qq.com)
+ * @Version      : V1.0
+ * @Date         : 2025-11-26 21:15:09
+ * @Description  : 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <table border="1" cellspacing="0">
+      <tr v-for="(item, index) in scoreList">
+        <th>{{ item.subject }}</th>
+        <th :class="{'active': item.score < 60}">{{ item.score }}</th>
+        <th><a @click="deleteScore(item.id)">删除</a></th>
+      </tr>
+    </table>
+
+    Subject: <input type="text" v-model.trim="subject">
+    <br>
+    Score: <input type="text" v-model.number="score">
+    <br>
+
+    <p>总分：{{ totalScore }}</p>
+    <p>平均分：{{ averageScore }}</p>
+
+    <button @click="addScore">Add Score</button>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        subject: '',
+        score: 0,
+        scoreList: [
+          {
+            id: 1,
+            subject: '数学',
+            score: 90
+          },
+          {
+            id: 2,
+            subject: '英语',
+            score: 30
+          },
+          {
+            id: 3,
+            subject: '物理',
+            score: 70
+          },
+        ],
+      },
+      computed: {
+        totalScore() {
+          return this.scoreList.reduce((total, item) => total + item.score, 0);
+        },
+
+        averageScore() {
+          if (this.scoreList.length === 0) {
+            return 0;
+          }
+          return (this.totalScore / this.scoreList.length).toFixed(2);
+        }
+      },
+      methods: {
+        addScore() {
+
+          if (this.subject === '') {
+            alert('请输入科目');
+            return;
+          }
+          if (!this.score || typeof this.score !== 'number') {
+            alert('请输入成绩');
+            return;
+          }
+
+          this.scoreList.push({
+            id: +new Date(),
+            subject: this.subject,
+            score: this.score
+          });
+
+          // clear input content
+          this.subject = '';
+          this.score = 0;
+        },
+
+        deleteScore(id) {
+          this.scoreList = this.scoreList.filter(item => item.id !== id);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

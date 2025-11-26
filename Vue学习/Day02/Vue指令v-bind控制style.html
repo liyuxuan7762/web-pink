@@ -1,0 +1,53 @@
+<!--
+ * @Author       : Wang Chong(3436971707qq.com)
+ * @Version      : V1.0
+ * @Date         : 2025-11-26 20:02:22
+ * @Description  : 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #progressBar {
+      width: 100%;
+      height: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    #inner {
+      width: 25%;
+      height: 100%;
+      background-color: #007bff;
+      border-radius: 10px;
+      transition: width 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <div id="progressBar">
+      <div :style="{width: progress + '%'}" id="inner"></div>
+    </div>
+    <button @click="progress = 25">25%</button>
+    <button @click="progress = 50">50%</button>
+    <button @click="progress = 75">75%</button>
+    <button @click="progress = 100">100%</button>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        progress: 25
+      }
+    });
+  </script>
+
+</body>
+</html>

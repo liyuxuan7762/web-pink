@@ -92,10 +92,32 @@
     }
 
     ul li {
+      display: flex;
       padding: 10px;
       border-bottom: 1px solid var(--body-color);
       color: var(--font-color);
       font-size: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul li div {
+      display: block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--color);
+      border-radius: 50%;
+      background-color: var(--body-color);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    ul li:hover div {
+      opacity: 1;
+      cursor: pointer;
     }
 
     .input-container {
@@ -151,30 +173,84 @@
 
 <body>
   <h1>My Notepad</h1>
-  <div class="container">
+  <div id="app" class="container">
     <div class="top">
       <div class="input-container">
-        <input type="text" placeholder="Please Enter Something">
-        <div>Add</div>
+        <input v-model="inputContent" @keyup.enter="add" type="text" placeholder="Please Enter Something">
+        <div @click="add">Add</div>
       </div>
       <ul>
-        <li>1. Learn Vue</li>
-        <li>2. Learn MySQL Database</li>
-        <li>3. Learn HTML & CSS</li>
-        <li>4. Learn JavaScript</li>
-        <li>5. Learn React</li>
-        <li>6. Learn Node.js</li>
-        <li>7. Learn Git & GitHub</li>
-        <li>8. Learn Vue Router</li>
-        <li>9. Learn Vuex</li>
+        <li v-for="(item, index) in todoList" :key="item.id">
+          <span>{{ index + 1 }}. {{ item.content }}</span>
+          <div @click="del(item.id)">X</div>
+        </li>
       </ul>
     </div>
 
     <div class="footer">
-      <span>Total 2 items</span>
-      <span>Clear All</span>
+      <span v-show="todoList.length > 0">Total {{ todoList.length }} items</span>
+      <span v-show="todoList.length > 0" style="cursor: pointer;" @click="clear">Clear All</span>
     </div>
   </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        todoList: [
+          {
+            id: 1,
+            content: 'Learn Vue'
+          },
+          {
+            id: 2,
+            content: 'Learn MySQL Database'
+          },
+          {
+            id: 3,
+            content: 'Learn HTML & CSS'
+          },
+          {
+            id: 4,
+            content: 'Learn JavaScript'
+          },
+          {
+            id: 5,
+            content: 'Learn React'
+          },
+        ],
+        inputContent: ''
+      },
+      methods: {
+        del(id) {
+          this.todoList = this.todoList.filter(item => item.id !== id);
+        },
+
+        clear() {
+          this.todoList = [];
+        },
+
+        add() {
+          if (this.inputContent === '') {
+            alert('Please Enter Something');
+            return;
+          }
+
+          this.todoList.push({
+            id: this.todoList.length + 1,
+            content: this.inputContent
+          });
+
+          // clear input content
+          this.inputContent = '';
+        }
+      },
+
+      
+    });
+  </script>
 </body>
 
 </html>

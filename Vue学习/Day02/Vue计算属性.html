@@ -1,0 +1,54 @@
+<!--
+ * @Author       : Wang Chong(3436971707qq.com)
+ * @Version      : V1.0
+ * @Date         : 2025-11-26 20:33:16
+ * @Description  : 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in goodsList" :key="item.id">{{ item.name }}: {{ item.price }}元</li>
+    </ul>
+    <p>总金额: {{ totalPrice }}元</p>
+  </div>
+  
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        goodsList: [
+          {
+            id: 1,
+            name: '苹果',
+            price: 20
+          },
+          {
+            id: 2,
+            name: '香蕉',
+            price: 30
+          },
+          {
+            id: 3,
+            name: '橙子',
+            price: 40
+          }
+        ]
+      },
+      computed: {
+        totalPrice() {
+          return this.goodsList.reduce((sum, item) => sum + item.price, 0);
+        }
+      }
+    })
+  </script>
+</body>
+</html>

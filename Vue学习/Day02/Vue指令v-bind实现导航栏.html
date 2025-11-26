@@ -1,0 +1,68 @@
+<!--
+ * @Author       : Wang Chong(3436971707qq.com)
+ * @Version      : V1.0
+ * @Date         : 2025-11-26 19:55:48
+ * @Description  : 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    ul li {
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .active {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li @click="activeIndex = index" :class="{'active' : index === activeIndex}" v-for="(item, index) in linkList">{{ item.name }}</li>
+    </ul>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        activeIndex: 0,
+        linkList: [
+          {
+            name: '厨房好物',
+            url: 'https://www.baidu.com'
+          },
+          {
+            name: '生活方式',
+            url: 'https://www.baidu.com'
+          },
+          {
+            name: '萌宠乐园',
+            url: 'https://www.baidu.com'
+          },
+        ]
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>

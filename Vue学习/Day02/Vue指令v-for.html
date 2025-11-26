@@ -1,0 +1,77 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-26 13:52:43
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-26 14:19:23
+ * @FilePath: \web-pink\Vue学习\Day02\Vue指令v-for.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #000000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in bookList" :key="{{item.id}}">
+        <h5>{{ item.name }}</h5>
+        <span>{{ item.price }}元</span>
+        <button @click="del(item.id)">删除</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        bookList: [
+          {
+            id: 1,
+            name: '三国演义',
+            price: 50
+          },
+          {
+            id: 2,
+            name: '水浒传',
+            price: 40
+          },
+          {
+            id: 3,
+            name: '西游记',
+            price: 30
+          }
+        ]
+      },
+      methods: {
+        del(id) {
+          this.bookList = this.bookList.filter(item => item.id !== index);
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

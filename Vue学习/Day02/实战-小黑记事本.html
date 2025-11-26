@@ -1,0 +1,180 @@
+<!--
+ * @Author: Li 776239423@qq.com
+ * @Date: 2025-11-26 14:41:37
+ * @LastEditors: Li 776239423@qq.com
+ * @LastEditTime: 2025-11-26 16:44:36
+ * @FilePath: \web-pink\Vue学习\Day02\实战-小黑记事本.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小黑记事本</title>
+  <style>
+    :root {
+      --color: #CA6358;
+      --body-color: #f3f3f3;
+      --font-color: #333333;
+    }
+
+    body {
+      background-color: var(--body-color);
+      box-sizing: border-box;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 300;
+      font-family: 'Courier New', Courier, monospace;
+      color: var(--color);
+    }
+
+    .container {
+      position: relative;
+      width: 50%;
+      height: 300px;
+      margin: 0 auto;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .container::before {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      margin-bottom: 20px;
+      z-index: -1;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container::after {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      margin-bottom: 20px;
+      z-index: -2;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      width: 95%;
+      height: 240px;
+      list-style: none;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+      overflow: scroll;
+      /* 隐藏滚动条 */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    ul li {
+      padding: 10px;
+      border-bottom: 1px solid var(--body-color);
+      color: var(--font-color);
+      font-size: 12px;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      display: flex;
+      width: 95%;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--body-color);
+      color: var(--font-color);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .input-container input,
+    .input-container input:focus {
+      padding: 0;
+      height: 30px;
+      border: 2px solid var(--color);
+      outline: 0;
+      /* 左边上下改为圆角 */
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      padding-left: 10px;
+
+    }
+
+    .input-container input::placeholder {
+      font-size: 10px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .input-container div {
+      height: 30px;
+      border: 2px solid var(--color);
+      background-color: var(--color);
+      font-size: 10px;
+      padding: 0 10px;
+      line-height: 30px;
+      color: #fff;
+      cursor: pointer;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>My Notepad</h1>
+  <div class="container">
+    <div class="top">
+      <div class="input-container">
+        <input type="text" placeholder="Please Enter Something">
+        <div>Add</div>
+      </div>
+      <ul>
+        <li>1. Learn Vue</li>
+        <li>2. Learn MySQL Database</li>
+        <li>3. Learn HTML & CSS</li>
+        <li>4. Learn JavaScript</li>
+        <li>5. Learn React</li>
+        <li>6. Learn Node.js</li>
+        <li>7. Learn Git & GitHub</li>
+        <li>8. Learn Vue Router</li>
+        <li>9. Learn Vuex</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <span>Total 2 items</span>
+      <span>Clear All</span>
+    </div>
+  </div>
+</body>
+
+</html>
